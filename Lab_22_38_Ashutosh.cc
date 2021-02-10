@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void main()
+int main()
 {
     int x, y, result;
     cout << "\nEnter 1st number : ";
@@ -25,4 +25,5 @@ void main()
     {
         cout << "\nCan't divide by : " << y;
     }
+    return 0;
 }

@@ -1,59 +1,61 @@
-#include <cstdio> 
-#define MAX_NAME 20
-
+#include <iostream>
 using namespace std;
 
-class person{
-public:
+class person
+{
+protected:
+	char *name;
 	int id;
-	char name[MAX_NAME];
-};
 
-class student: public person
-{
 public:
-	/*There is no specific task described in question of lab number 14 to do in student class, hence I'm keeping it as it is.*/
-};
-class faculty: public person
-{
-public:
-	int salary;
-	void set_faculty_id(int id)
-	{
-		this->id = id;
-	}
-	void set_faculty_name(char name[MAX_NAME])
+	void set_name(char *name)
 	{
 		this->name = name;
 	}
-};
-class  grades:public student, public faculty
-{
-public:
-	 grades();
-	 void display()
-	 {
-	 	printf("\n\nName of faculty is: %s\nId of faculty is: %d\n\n",::faculty,::id);
-	 }
-	~ grades()
+	void print_name(void)
 	{
-		printf("\n\n*******Object destroying********\n\n");
+		cout << "Name is: " << name << endl;
 	}
-	
+	void set_id(int id)
+	{
+		this->id = id;
+	}
+	void print_id(void)
+	{
+		cout << "Id is is: " << id << endl;
+	}
 };
 
-int main(int argc, char const *argv[])
+class student : virtual public person
 {
-	int id;
-	char name[MAX_NAME];
-	grades *obj = new grades();
-	printf("Set the id of faculty\n");
-	scanf("%d",&id);
-	printf("Set the name of faculty\n");
-	scanf("%[^\n]%*c",&name);
-	obj->set_faculty_id(id);
-	obj->set_faculty_name(name);
-	obj->display();
-	delete obj;
+protected:
+public:
+};
+
+class faculty : virtual public person
+{
+protected:
+public:
+};
+
+class grades : public student, public faculty
+{
+private:
+	/*code*/
+public:
+	void display(void)
+	{
+		print_id();
+		print_name();
+	}
+};
+
+int main()
+{
+	grades obj;
+	obj.set_name("dbms");
+	obj.set_id(789);
+	// obj.set_score(9);
+	obj.display();
 	return 0;
 }

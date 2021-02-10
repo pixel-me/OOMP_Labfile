@@ -48,7 +48,7 @@ void Sphere::find_vol()
     volume = (4 / 3) * 3.14 * radius * radius * radius;
     cout << "Volume of sphere is : " << volume;
 }
-void main()
+int main()
 {
     Shape *ptr;
     Cube cube;
@@ -57,4 +57,5 @@ void main()
     ptr->find_vol();
     ptr = &sphere;
     ptr->find_vol();
+    return 0;
 }

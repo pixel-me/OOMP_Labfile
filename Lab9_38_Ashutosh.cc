@@ -6,7 +6,7 @@ using namespace std;
 class TAXPAYER
 {
 private:
-    char Name[30];
+    string Name;
     char PanNo[30];
     float Taxabincm;
     double TotTax;
@@ -24,8 +24,8 @@ private:
 public:
     TAXPAYER(char nm[], char pan[], float tax, double ttax) //parameterized constructor
     {
-        // Name = nm;
-        strcpy(Name, nm);
+        Name = nm;
+        // strcpy(Name, nm);
         strcpy(PanNo, pan);
         Taxabincm = tax;
         TotTax = ttax;
@@ -33,8 +33,8 @@ public:
 
     void INTAX()
     {
-        // getline(cin, Name);
-        gets(Name);
+        getline(cin, Name);
+        // fgets(Name);
         cin >> PanNo >> Taxabincm;
         CompTax();
     }

@@ -8,7 +8,7 @@ class book
 
 	int book_numbre;
 
-	char title[15];
+	string title;
 
 	float price;
 
@@ -36,7 +36,9 @@ public:
 
 		cout<<"Enter Book Title ";
 
-		gets(title);
+		// gets(title);
+		cin.ignore();
+		getline(cin, title);
 
 		cout<<"Enter price per book ";
 
@@ -62,7 +64,7 @@ public:
 
 	}
 
-}book obj_global;   /*Declaring global object*/
+};   
 
  
 
@@ -70,17 +72,11 @@ int main()
 
 {
 
-	book obj_local;   /*Declaring local object */
+	book obj_local;   
 
 	obj_local.getdata();
 
 	obj_local.purchase();
-
-/* doing the same work by using global object */
-
-	obj_global.getdata();
-
-	obj_global.purchase();
 
 	return 0;
 }
